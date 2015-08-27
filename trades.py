@@ -78,8 +78,8 @@ def main():
     print "Maximum Profit with unlimited trades: " + str(max_profit) + "\n\n"
 
     game = MarketGame(prices)
-    max_profit = game.maximum_profits(4)
-    print "Maximum Profit with 4 trades: " + str(max_profit)
+    max_profit = game.maximum_profits(2)
+    print "Maximum Profit with 2 trades: " + str(max_profit)
 
 if __name__ == "__main__":
     main()
