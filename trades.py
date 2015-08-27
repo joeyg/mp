@@ -17,7 +17,7 @@ class MarketGame():
         return sum(best_sells)
 
     def sell(self, selling_price):
-        if self.bought_stock_at is None:
+        if not self.currently_have_stock():
             # We don't have any stock to sell, just return
             return
 
@@ -27,7 +27,7 @@ class MarketGame():
         self.bought_stock_at = None
 
     def buy(self, price):
-        if self.bought_stock_at is not None:
+        if self.currently_have_stock():
             # We already have stock!
             print ("We can't buy stock, we already own some")
             return
@@ -75,7 +75,7 @@ def main():
     prices = [223600, 220980, 220450, 223480, 226680, 224675, 222424, 223000, 221878, 221510, 223615, 222636, 220895, 224915, 223751, 224184, 221511, 217160, 219998, 215865]
     game = MarketGame(prices)
     max_profit = game.maximum_profits(sys.maxint)
-    print "Maximum Profit with unlimited trades: " + str(max_profit)
+    print "Maximum Profit with unlimited trades: " + str(max_profit) + "\n\n"
 
     game = MarketGame(prices)
     max_profit = game.maximum_profits(4)
